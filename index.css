@@ -8,11 +8,8 @@
 a{
     text-decoration: none;
     color:black;
-    transition:color .5s;
 }
-a:hover{
-    color:green;
-}
+
 
 main{
     /*min-width: 600px;*/
@@ -73,6 +70,8 @@ input:focus::placeholder {
     gap:20px;
 }
 .nav{
+    position: relative;
+    cursor: pointer;
     overflow-wrap: anywhere;
     flex:1;
     min-width: 20%;
@@ -87,7 +86,13 @@ input:focus::placeholder {
 .nav-logo{
     font-size: 50px;
     text-align: center;
-    cursor:default ;
+}
+.nav-logo,.nav-name{
+    color:black;
+    transition: color 1s;
+}
+.nav-logo:hover,.nav-name:hover{
+    color:green;
 }
 .nav-name{
     text-align: center;
@@ -108,4 +113,13 @@ input:focus::placeholder {
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+}
+.close{
+    font-size: 160%;
+    position: absolute;
+    top:-10%;
+    right: 0;
+}
+.close:hover{
+    color: green;
 }
