@@ -1,16 +1,23 @@
 const arrString = window.localStorage.getItem('arry');
 const arr =  JSON.parse(arrString);
-const map = arr || [
-    {name:"百",link:"https://baidu.com",desc:"百度",id:1},
-    {name:"G",link:"https://google.com",desc:"谷歌",id:2},
-    {name:"M",link:"https://developer.mozilla.org/zh-CN/",desc:"MDN",id:3},
-    {name:"R",link:"https://react.docschina.org/",desc:"React",id:4},
-    {name:"C",link:"https://css-tricks.com/",desc:"CSS-TRICKS",id:5},
-    {name:"H",link:"https://github.com/dashingli?tab=repositories",desc:"GitHub",id:6},
-    {name:"I",link:"https://caniuse.com/",desc:"Can I Use",id:7},
-    {name:"网道",link:"https://wangdoc.com/",desc:"网道",id:8},
-    {name:"Code",link:"https://codepen.io/trending?cursor=ZD0wJm89MCZwPTE=",desc:"CodePen",id:9},
-]
+let map;
+if(arrString === null){
+    map = [
+        {name:"百",link:"https://baidu.com",desc:"百度",id:1},
+        {name:"G",link:"https://google.com",desc:"谷歌",id:2},
+        {name:"M",link:"https://developer.mozilla.org/zh-CN/",desc:"MDN",id:3},
+        {name:"R",link:"https://react.docschina.org/",desc:"React",id:4},
+        {name:"C",link:"https://css-tricks.com/",desc:"CSS-TRICKS",id:5},
+        {name:"H",link:"https://github.com/dashingli?tab=repositories",desc:"GitHub",id:6},
+        {name:"I",link:"https://caniuse.com/",desc:"Can I Use",id:7},
+        {name:"网道",link:"https://wangdoc.com/",desc:"网道",id:8},
+        {name:"Code",link:"https://codepen.io/trending?cursor=ZD0wJm89MCZwPTE=",desc:"CodePen",id:9},
+    ]
+    const string = JSON.stringify(map);
+    window.localStorage.setItem('arry',string);
+}else{
+    map = arr;
+}
 let id = 9;
 //搜索功能
 const searchInput = document.querySelector('.search-input');
@@ -39,8 +46,9 @@ navAdd.addEventListener('click',() =>{
         return
     }
     const name = desc[0];
+    id += 1;
     const mapObj = {
-        name:name,link:link,desc:desc,id:id+1
+        name:name,link:link,desc:desc,id:id
     }
     map.push(mapObj);
     console.log(map);
