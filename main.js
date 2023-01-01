@@ -104,7 +104,7 @@ const render = () => {
 }
 render();
 // 退出页面后将收藏页面写入localstorage
-// window.onbeforeunload = ()=>{
-//     const string = JSON.stringify(map);
-//     window.localStorage.setItem('arry',string);
-// }
+window.onbeforeunload = ()=>{
+    const string = JSON.stringify(map);
+    window.localStorage.setItem('arry',string);
+}
